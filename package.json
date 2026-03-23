@@ -1,0 +1,40 @@
+{
+  "name": "untested-hotspots",
+  "version": "0.1.0",
+  "description": "GitHub Action to find high-risk untested functions using Supermodel test coverage mapping",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "ncc build src/index.ts -o dist",
+    "test": "vitest",
+    "lint": "eslint src",
+    "test-local": "tsx test-local.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/supermodeltools/untested-hotspots.git"
+  },
+  "keywords": [
+    "github-action",
+    "test-coverage",
+    "untested-functions",
+    "supermodel",
+    "code-quality"
+  ],
+  "author": "Supermodel Tools",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.10.1",
+    "@actions/exec": "^1.1.1",
+    "@actions/github": "^6.0.0",
+    "@supermodeltools/sdk": "^0.4.1",
+    "minimatch": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/minimatch": "^5.1.2",
+    "@types/node": "^20.0.0",
+    "@vercel/ncc": "^0.38.0",
+    "typescript": "^5.0.0",
+    "vitest": "^4.0.16",
+    "tsx": "^4.0.0"
+  }
+}

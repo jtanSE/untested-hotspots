@@ -1,0 +1,16 @@
+name: Untested Hotspots
+
+on:
+  pull_request:
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: supermodeltools/untested-hotspots@v1
+        with:
+          supermodel-api-key: ${{ secrets.SUPERMODEL_API_KEY }}

@@ -1,0 +1,48 @@
+name: 'Untested Hotspots'
+description: 'Find high-risk untested functions in your codebase using Supermodel test coverage mapping'
+author: 'Supermodel Tools'
+
+branding:
+  icon: 'alert-triangle'
+  color: 'yellow'
+
+inputs:
+  supermodel-api-key:
+    description: 'Supermodel API key from https://supermodeltools.com'
+    required: true
+  github-token:
+    description: 'GitHub token for posting PR comments (defaults to github.token)'
+    required: false
+    default: ${{ github.token }}
+  comment-on-pr:
+    description: 'Post findings as PR comment'
+    required: false
+    default: 'true'
+  fail-on-untested:
+    description: 'Fail the action if untested hotspots are found above the minimum risk score'
+    required: false
+    default: 'false'
+  top-n:
+    description: 'Number of top hotspots to display in PR comment'
+    required: false
+    default: '20'
+  min-risk-score:
+    description: 'Minimum risk score (0-100) to include in results'
+    required: false
+    default: '0'
+  ignore-patterns:
+    description: 'JSON array of glob patterns to ignore (e.g. ["**/generated/**"])'
+    required: false
+    default: '[]'
+
+outputs:
+  untested-count:
+    description: 'Total number of untested functions found'
+  untested-hotspots-json:
+    description: 'JSON array of all untested hotspot findings with risk scores'
+  top-hotspots-json:
+    description: 'JSON array of top-N hotspots only'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
