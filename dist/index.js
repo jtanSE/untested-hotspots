@@ -30362,7 +30362,7 @@ async function run() {
                 core.error('Payment required. Check your account at https://dashboard.supermodeltools.com');
             }
             else {
-                core.error(`API error (${status})`);
+                core.error(`API error (${status}): ${error.response.data}`);
             }
         }
         if (error instanceof Error) {

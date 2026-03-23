@@ -165,7 +165,7 @@ async function run(): Promise<void> {
       } else if (status === 402) {
         core.error('Payment required. Check your account at https://dashboard.supermodeltools.com');
       } else {
-        core.error(`API error (${status})`);
+        core.error(`API error (${status}): ${error.response.data}`);
       }
     }
 
